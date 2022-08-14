@@ -1,11 +1,9 @@
-import { MovieInfo } from "../components/movie-info/movie-info"
+import { MovieInfo } from "../components/movie-info/movie-info.js"
 
-const MoviePage = () => {
+const InfoPage = () => {
     return (
-        <>
-            <MovieInfo />
-        </>
+        <MovieInfo />
     )
 }
 
-export { MoviePage }
+export { InfoPage }

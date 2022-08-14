@@ -1,0 +1,15 @@
+.movie-info {
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+}
+
+.backdrop-wrap {
+    width: 500px;
+}
+
+.backdrop {
+    width: 100%;
+    height: 100%;
+}
+

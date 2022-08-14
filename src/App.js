@@ -1,10 +1,10 @@
 import './App.css';
-import { MovieList } from './components/movie-list/movie-list';
+import { AppRoutes } from './pages/routes';
 
 function App() {
   return (
     <>
-      <MovieList />
+      <AppRoutes />
     </>
   );
 }
