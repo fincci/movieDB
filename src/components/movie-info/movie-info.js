@@ -26,9 +26,11 @@ const MovieInfo = () => {
         return `${rhours}h ${rminutes} min`
     }
 
-    if (Object.keys(movieInfo) !== 0) {
-        console.log(movieInfo); //log
-        const { backdrop_path, original_title, release_date, genres, overview, runtime } = movieInfo
+    const { backdrop_path, original_title, release_date, genres, overview, runtime, vote_average, spoken_languages } = movieInfo
+
+    if (Object.keys(movieInfo).length !== 0) {
+
+        console.log(spoken_languages); //log
 
         return (
             <div className="movie-info">
@@ -40,6 +42,20 @@ const MovieInfo = () => {
                     <p>{timeConvert(runtime)}</p>
                     <p className="info-overview">{overview}</p>
                     <p className="info-release">{release_date.replaceAll('-', '/')}</p>
+                    <p>{Math.round(vote_average * 10) / 10}</p>
+                    <p>classificação indicativa</p>
+                    <ul className="info-languages">
+                        {
+                            spoken_languages.map((language, index) => {
+                                return (
+                                    <li className="languages" key={index}>
+                                        <p className="language-en">{language.english_name}</p>
+                                        <p className="language-true">{language.name}</p>
+                                    </li>
+                                )
+                            })
+                        }
+                    </ul>
                     <ul className="info-genres">
                         {
                             genres.map((genre, index) => {

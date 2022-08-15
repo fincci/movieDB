@@ -1,7 +1,6 @@
 .movie-info {
     width: 100vw;
     height: 100vh;
-    background-size: cover;
 }
 
 .backdrop-wrap {
@@ -13,3 +12,19 @@
     height: 100%;
 }
 
+.languages {
+    position: relative;
+    height: 20px;
+}
+
+.language-en, .language-true {
+    position: absolute;
+    transition: .3s;
+}
+
+.languages:hover .language-en, .language-true {
+    opacity: 0;
+}
+.languages:hover .language-true {
+    opacity: 1;
+}
