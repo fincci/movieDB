@@ -2,7 +2,9 @@ import { MovieInfo } from "../components/movie-info/movie-info.js"
 
 const InfoPage = () => {
     return (
-        <MovieInfo />
+        <div className="info">
+            <MovieInfo />
+        </div>
     )
 }
 
