@@ -7,9 +7,10 @@
     width: 100vw;
     height: 100vh;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .movie-info::before {
@@ -19,7 +20,7 @@
     left: 0;
     height: 100%;
     width: 100%;
-    filter: blur(10px) brightness(.3);
+    filter: blur(4px) brightness(.3);
     transform: scale(1.1);
     z-index: -1;
 }
@@ -38,16 +39,15 @@
 
 .main-info {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
     margin: 0 100px;
 }
 
-.main-text {
-    display: flex;
-    flex-direction: column;
-}
-
 .backdrop-wrap {
-    width: 1000px;
+    min-width: 500px;
+    max-height: 281px;
 }
 
 .backdrop {
@@ -55,19 +55,83 @@
     height: 100%;
 }
 
-.languages {
+.movie-details {
+    display: flex;
+    flex-direction: column;
+    max-width: 30%;
+    justify-content: space-evenly;
+    gap: 20px;
+}
+
+.info-title {
+    font-size: 40px;
+}
+
+.info-release {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 13px;
+}
+
+.info-overview {
+    text-align: justify;
+}
+
+.rate-release {
+    display: flex;
+    justify-content: flex-end;
+    gap: 50px;
+}
+
+.genre-language {
+    display: flex;
+    width: 100%;
+}
+
+.info-genres, .info-languages {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-genres h3, .info-languages h3 {
+    font-size: 17px;
+}
+
+.genres-itens {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.languages-itens {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.language {
     position: relative;
-    height: 20px;
 }
 
 .language-en, .language-true {
-    position: absolute;
-    transition: .3s;
+    transition: .3s ease-in-out;
+    cursor: default;
 }
 
-.languages:hover .language-en, .language-true {
+.language:hover .language-en, .language-true {
     opacity: 0;
 }
-.languages:hover .language-true {
+
+.language:hover .language-true {
     opacity: 1;
+}
+.language-true {
+    position: absolute;
+    top: 0;
+}
+
+.imdb {
+    width: 100px;
 }

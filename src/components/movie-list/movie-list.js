@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
-import { Link, useParams } from 'react-router-dom'
-import { fetchDetails, fetchType } from "../../scripts/services/fetchs"
+import { Link } from 'react-router-dom'
+import { fetchType } from "../../scripts/services/fetchs"
 import { popular } from "../../scripts/variables"
 import { MovieCard } from "../movie-card/movie-card"
 import './movie-list.css'
@@ -16,7 +16,7 @@ const MovieList = () => {
         }
         fetchData()
     }, [])
-    // console.log(movies); //LOG
+    console.log(movies); //LOG
     return (
         <ul className="movie-list">
             {

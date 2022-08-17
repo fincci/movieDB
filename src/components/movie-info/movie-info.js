@@ -30,7 +30,11 @@ const MovieInfo = () => {
 
     const { backdrop_path, original_title, release_date, genres, overview, runtime, vote_average, spoken_languages } = movieInfo
 
+
+
     if (Object.keys(movieInfo).length !== 0) {
+
+        // console.log(movieInfo); //log
         return (
             <Section backdrop={backdrop_path} className="movie-info">
                 <Link className="link-back" to='/'>
@@ -38,42 +42,52 @@ const MovieInfo = () => {
                 </Link>
                 <div className="main-info">
                     <div className="backdrop-wrap">
-                        <img className="backdrop" src={`${imgURL}${backdrop_path}`} />
+                        {/* <img className="backdrop" src={`${imgURL}${backdrop_path}`} /> */}
                     </div>
-                    <div className="main-text">
-                        <h1 className="info-title">{original_title}</h1>
+                    <div className="movie-details">
+                        <div className="title-wrap">
+                            <h1 className="info-title">{original_title}</h1>
+                            <p className="info-release">{release_date.replaceAll('-', '/')}</p>
+                        </div>
                         <p className="info-overview">{overview}</p>
-                    </div>
+                        <div className="rate-release">
+                            <p>{(Math.round(vote_average * 10) / 10).toFixed(1)} ⭐</p>
+                            <p>{timeConvert(runtime)}</p>
+                        </div>
+                        <div className="genre-language">
+                            <div className="info-genres">
+                                <h3>Genres</h3>
+                                <ul className="genres-itens">
+                                    {
+                                        genres.map((genre, index) => {
+                                            return (
+                                                <li key={index}>{genre.name}</li>
+                                            )
+                                        })
+                                    }
+                                </ul>
 
+                            </div>
+                            <div className="info-languages">
+                                <h3>Languages Spoken</h3>
+                                <ul className="languages-itens">
+                                    {
+                                        spoken_languages.map((language, index) => {
+                                            return (
+                                                <li className="language" key={index}>
+                                                    <p className="language-en">{language.english_name}</p>
+                                                    <p className="language-true">{language.name}</p>
+                                                </li>
+                                            )
+                                        })
+                                    }
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
-                <div className="movie-details">
-                    <p>{timeConvert(runtime)}</p>
-                    <p className="info-release">{release_date.replaceAll('-', '/')}</p>
-                    <p>{Math.round(vote_average * 10) / 10}</p>
-                    <p>classificação indicativa</p>
-                    <ul className="info-languages">
-                        {
-                            spoken_languages.map((language, index) => {
-                                return (
-                                    <li className="languages" key={index}>
-                                        <p className="language-en">{language.english_name}</p>
-                                        <p className="language-true">{language.name}</p>
-                                    </li>
-                                )
-                            })
-                        }
-                    </ul>
-                    <ul className="info-genres">
-                        {
-                            genres.map((genre, index) => {
-                                return (
-                                    <li key={index}>{genre.name}</li>
-                                )
-                            })
-                        }
-                    </ul>
-                </div>
-            </Section>
+            </Section >
         )
     }
 }
