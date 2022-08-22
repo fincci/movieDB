@@ -5,6 +5,7 @@ import { imgURL } from '../../scripts/variables'
 import arrow from '../../assets/images/arrow.png'
 import styled, { css } from 'styled-components'
 import './movie-info.css'
+import { ImdbIcon } from "../../assets/svgs/imdb-svg"
 
 const MovieInfo = () => {
 
@@ -28,25 +29,23 @@ const MovieInfo = () => {
         return `${rhours}h ${rminutes} min`
     }
 
-    const { backdrop_path, original_title, release_date, genres, overview, runtime, vote_average, spoken_languages } = movieInfo
+    const { backdrop_path, original_title, title, release_date, genres, overview, runtime, vote_average, spoken_languages } = movieInfo
 
 
 
     if (Object.keys(movieInfo).length !== 0) {
-
-        // console.log(movieInfo); //log
+        console.log(movieInfo); //log
         return (
             <Section backdrop={backdrop_path} className="movie-info">
                 <Link className="link-back" to='/'>
                     <img className="arrow" src={arrow} alt='Back'></img>
                 </Link>
                 <div className="main-info">
-                    <div className="backdrop-wrap">
-                        {/* <img className="backdrop" src={`${imgURL}${backdrop_path}`} /> */}
-                    </div>
+                    <ImdbIcon className='imdb-icon' color='white'></ImdbIcon>
                     <div className="movie-details">
                         <div className="title-wrap">
-                            <h1 className="info-title">{original_title}</h1>
+                            <h1 className="info-title">{title}</h1>
+                            <h1 className="info-true-title">{original_title}</h1>
                             <p className="info-release">{release_date.replaceAll('-', '/')}</p>
                         </div>
                         <p className="info-overview">{overview}</p>
@@ -69,7 +68,7 @@ const MovieInfo = () => {
 
                             </div>
                             <div className="info-languages">
-                                <h3>Languages Spoken</h3>
+                                <h3>Languages spoken</h3>
                                 <ul className="languages-itens">
                                     {
                                         spoken_languages.map((language, index) => {
