@@ -45,6 +45,10 @@
     margin: 0 100px;
 }
 
+.imdb-link {
+    width: 50px;
+}
+
 .movie-details {
     display: flex;
     flex-direction: column;

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import { fetchDetails } from "../../scripts/services/fetchs"
-import { imgURL } from '../../scripts/variables'
+import { imdbURL, imgURL } from '../../scripts/variables'
 import arrow from '../../assets/images/arrow.png'
 import styled, { css } from 'styled-components'
 import './movie-info.css'
@@ -29,7 +29,7 @@ const MovieInfo = () => {
         return `${rhours}h ${rminutes} min`
     }
 
-    const { backdrop_path, original_title, title, release_date, genres, overview, runtime, vote_average, spoken_languages } = movieInfo
+    const { backdrop_path, original_title, title, release_date, genres, overview, runtime, vote_average, spoken_languages, imdb_id } = movieInfo
 
 
 
@@ -38,10 +38,12 @@ const MovieInfo = () => {
         return (
             <Section backdrop={backdrop_path} className="movie-info">
                 <Link className="link-back" to='/'>
-                    <img className="arrow" src={arrow} alt='Back'></img>
+                    <img className="arrow" src={arrow} alt='Back' />
                 </Link>
                 <div className="main-info">
-                    <ImdbIcon className='imdb-icon' color='white'></ImdbIcon>
+                    <a className="imdb-link" href={`${imdbURL}${imdb_id}`} target='_blank'>
+                        <ImdbIcon className='imdb-icon' color='white'></ImdbIcon>
+                    </a>
                     <div className="movie-details">
                         <div className="title-wrap">
                             <h1 className="info-title">{title}</h1>
