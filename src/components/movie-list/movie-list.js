@@ -24,7 +24,7 @@ const MovieList = () => {
     }
 
     return (
-        <>
+        <section className="movie-list-wrapper">
             <ul className="movie-list">
                 {
                     movies.map((movie, index) => {
@@ -36,8 +36,8 @@ const MovieList = () => {
                     })
                 }
             </ul>
-            <Button action={addMovies} text='Load more' className='show-more-btn' />
-        </>
+            <Button action={addMovies} text='Load more' />
+        </section>
     )
 }
 

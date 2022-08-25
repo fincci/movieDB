@@ -1,6 +1,7 @@
+import './button.css'
+
 export const Button = (props) => {
-    console.log(props.text);
     return (
-        <button onClick={() => props.action()}>{props.text}</button>
+        <button className='show-more-btn' onClick={() => props.action()}>{props.text}</button>
     )
 }

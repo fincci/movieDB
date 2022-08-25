@@ -1,12 +1,17 @@
+.movie-list-wrapper {
+    min-height: 100vh;
+    background: #313131 center center no-repeat;
+    padding: 100px 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
 .movie-list {
     display: flex;
-    /* width: 100vw; */
-    min-height: 100vh;
     flex-wrap: wrap;
-    padding: 20px;
     justify-content: center;
     align-content: center;
     gap: 20px;
-    background: black center center no-repeat;
-    background-size: cover;
 }
