@@ -1,4 +1,4 @@
-import { apiKey, baseURL } from "../variables"
+import { apiKey, baseURL, searchURL } from "../variables"
 
 const fetchDetails = async (id) => {
     const response = await fetch(`${baseURL}/movie/${id}?${apiKey}`)
@@ -11,4 +11,10 @@ const fetchType = async (type, page) => {
     return movie.results
 }
 
-export { fetchType, fetchDetails }
+const fetchSearch = async (string, page) => {
+    const response = await fetch(`${baseURL}${searchURL}${apiKey}&query=${string}&${page}`)
+    const movie = await response.json()
+    return console.log(movie)
+}
+
+export { fetchType, fetchDetails, fetchSearch }

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react"
 import { Link } from 'react-router-dom'
-import { fetchType } from "../../scripts/services/fetchs"
+import { fetchSearch, fetchType } from "../../scripts/services/fetchs"
 import { popular } from "../../scripts/variables"
 import { Button } from "../button/button"
+import { Header } from "../header/header"
 import { MovieCard } from "../movie-card/movie-card"
 import './movie-list.css'
 
@@ -36,7 +37,7 @@ const MovieList = () => {
                     })
                 }
             </ul>
-            <Button action={addMovies} text='Load more' />
+            <Button action={addMovies} text='Show more' />
         </section>
     )
 }
