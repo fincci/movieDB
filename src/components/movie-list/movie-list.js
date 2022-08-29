@@ -11,7 +11,9 @@ const MovieList = () => {
 
     const [movies, setMovies] = useState([])
     let [page, setPage] = useState(1)
+    const [search, setSearch] = useState([])
 
+    
     useEffect(() => {
         const fetchData = async () => {
             const movieArray = await fetchType(popular, page)
@@ -25,20 +27,23 @@ const MovieList = () => {
     }
 
     return (
-        <section className="movie-list-wrapper">
-            <ul className="movie-list">
-                {
-                    movies.map((movie, index) => {
-                        return (
-                            <Link to={`/movie/${movie.id}`} key={index}>
-                                <MovieCard movieInfo={movie} key={index} />
-                            </Link>
-                        )
-                    })
-                }
-            </ul>
-            <Button action={addMovies} text='Show more' />
-        </section>
+        <>
+            <Header />
+            <section className="movie-list-wrapper">
+                <ul className="movie-list">
+                    {
+                        movies.map((movie, index) => {
+                            return (
+                                <Link to={`/movie/${movie.id}`} key={index}>
+                                    <MovieCard movieInfo={movie} key={index} />
+                                </Link>
+                            )
+                        })
+                    }
+                </ul>
+                <Button action={addMovies} text='Show more' />
+            </section>
+        </>
     )
 }
 
