@@ -18,21 +18,24 @@ const MovieList = () => {
     }
 
     const searchSubmit = () => {
+        console.log(searchText); //log
         return searchText
     }
 
     useEffect(() => {
         const fetchData = async () => {
-            if (!searchText) {
+            if (searchText === '') {
                 const movieArray = await fetchType(popular, page)
                 setMovies([...movies, ...movieArray])
             } else {
+                console.log('entrou');
                 const movieArray = await fetchSearch(searchText, page)
-                setMovies([...movies, ...movieArray])
+                console.log(movieArray);
+                setMovies([...movieArray])
             }
         }
         fetchData()
-    }, [page])
+    }, [page, searchText])
 
     const addMovies = () => {
         setPage(page = page + 1)
@@ -40,7 +43,7 @@ const MovieList = () => {
 
     return (
         <>
-            <Header onChange={changeText} />
+            <Header onChange={changeText} searchSubmit={searchSubmit}/>
             <section className="movie-list-wrapper">
                 <ul className="movie-list">
                     {

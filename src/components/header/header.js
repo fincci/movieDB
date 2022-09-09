@@ -4,11 +4,11 @@ import { fetchSearch } from '../../scripts/services/fetchs';
 import './header.css'
 
 
-const Header = () => {
+const Header = (props) => {
     return (
         <header>
-            <input placeholder='movie name' className='search-input' onChange={changeText} />
-            <button onClick={searchSubmit}>Search</button>
+            <input placeholder='movie name' className='search-input' onChange={props.onChange} />
+            <button onClick={props.searchSubmit}>Search</button>
         </header>
     )
 }
