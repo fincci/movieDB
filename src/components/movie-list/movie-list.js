@@ -18,7 +18,6 @@ const MovieList = () => {
     }
 
     const searchSubmit = () => {
-        console.log(searchText); //log
         return searchText
     }
 
@@ -28,9 +27,7 @@ const MovieList = () => {
                 const movieArray = await fetchType(popular, page)
                 setMovies([...movies, ...movieArray])
             } else {
-                console.log('entrou');
                 const movieArray = await fetchSearch(searchText, page)
-                console.log(movieArray);
                 setMovies([...movieArray])
             }
         }

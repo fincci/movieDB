@@ -12,7 +12,7 @@ const fetchType = async (type, page) => {
 }
 
 const fetchSearch = async (string, page) => {
-    const response = await fetch(`${baseURL}${searchURL}${apiKey}&query=${string}&${page}`)
+    const response = await fetch(`${baseURL}${searchURL}${apiKey}&query=${string}&page=${page}`)
     const movie = await response.json()
     return movie.results
 }
