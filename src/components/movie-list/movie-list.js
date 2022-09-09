@@ -11,13 +11,25 @@ const MovieList = () => {
 
     const [movies, setMovies] = useState([])
     let [page, setPage] = useState(1)
-    const [search, setSearch] = useState([])
+    const [searchText, setSearchText] = useState('')
 
-    
+    const changeText = (e) => {
+        setSearchText(e.target.value.toLowerCase())
+    }
+
+    const searchSubmit = () => {
+        return searchText
+    }
+
     useEffect(() => {
         const fetchData = async () => {
-            const movieArray = await fetchType(popular, page)
-            setMovies([...movies, ...movieArray])
+            if (!searchText) {
+                const movieArray = await fetchType(popular, page)
+                setMovies([...movies, ...movieArray])
+            } else {
+                const movieArray = await fetchSearch(searchText, page)
+                setMovies([...movies, ...movieArray])
+            }
         }
         fetchData()
     }, [page])
@@ -28,7 +40,7 @@ const MovieList = () => {
 
     return (
         <>
-            <Header />
+            <Header onChange={changeText} />
             <section className="movie-list-wrapper">
                 <ul className="movie-list">
                     {

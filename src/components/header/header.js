@@ -1,19 +1,10 @@
 import React, { useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import { fetchSearch } from '../../scripts/services/fetchs';
 import './header.css'
 
 
 const Header = () => {
-    const [searchText, setSearchText] = useState('')
-
-    const changeText = (e) => {
-        setSearchText(e.target.value.toLowerCase())
-    }
-
-    const searchSubmit = () => {
-        return console.log(searchText);
-    }
-
     return (
         <header>
             <input placeholder='movie name' className='search-input' onChange={changeText} />
