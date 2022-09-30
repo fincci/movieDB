@@ -34,7 +34,7 @@ const MovieInfo = () => {
 
 
     if (Object.keys(movieInfo).length !== 0) {
-        console.log(movieInfo); //log
+        // console.log(movieInfo); //log
         return (
             <Section backdrop={backdrop_path} className="movie-info">
                 <Link className="link-back" to='/'>
@@ -67,7 +67,6 @@ const MovieInfo = () => {
                                         })
                                     }
                                 </ul>
-
                             </div>
                             <div className="info-languages">
                                 <h3>Languages spoken</h3>
@@ -84,7 +83,6 @@ const MovieInfo = () => {
                                     }
                                 </ul>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -95,11 +93,11 @@ const MovieInfo = () => {
 
 const Section = styled.section`
 &::before {
-    ${props => props.backdrop && css`
-        background: url(${imgURL}${props.backdrop}) center center no-repeat;
-        background-size: cover;
-    `}
-}
+    background: ${(props) => props.backdrop === null ? '#000' : `url(${imgURL}${props.backdrop})`};
+    background-size: cover;
+    }
 `
+
+
 
 export { MovieInfo }
