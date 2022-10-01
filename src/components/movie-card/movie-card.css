@@ -16,3 +16,16 @@
     height: 100%;
     position: absolute;
 }
+
+.movie-title {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: -2px -2px #1101c6;
+    position: absolute;
+    font-size: 25px;
+}
