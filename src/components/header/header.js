@@ -7,8 +7,13 @@ import './header.css'
 const Header = (props) => {
     return (
         <header>
-            <input placeholder='movie name' className='search-input' onChange={props.onChange} />
-            <button onClick={props.searchSubmit}>Search</button>
+            <div className='header-title'>
+                <h1>Movie Tool Search</h1>
+            </div>
+            <div>
+                <input placeholder='movie name' className='search-input' onChange={props.onChange} />
+                <button onClick={props.searchSubmit}>Search</button>
+            </div>
         </header>
     )
 }
